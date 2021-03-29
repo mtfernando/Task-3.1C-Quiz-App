@@ -17,9 +17,56 @@
     <string name="next_button">Next</string>
 
 <!--Question Strings-->
+<!--Questions will be stored in string arrays in the following format:-->
+<!--[Question Title, Question Description, Answer 1, Answer 2, Answer 3, Correct Answer]-->
     <string name="q1_title">Question Title</string>
     <string name="q1_desc">Question description goes here.</string>
     <string name="q1_answer1">Answer 1</string>
     <string name="q1_answer2">Answer 2</string>
     <string name="q1_answer3">Answer 3</string>
+
+    <string-array name="question1">
+        <item>Question Title</item>
+        <item>Question description goes here.</item>
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 1</item>
+    </string-array>
+
+    <string-array name="question2">
+        <item>Question Title</item>
+        <item>Question description goes here.</item>
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 1</item>
+    </string-array>
+
+    <string-array name="question3">
+        <item>Question Title</item>
+        <item>Question description goes here.</item>
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 1</item>
+    </string-array>
+
+    <string-array name="question4">
+        <item>Question Title</item>
+        <item>Question description goes here.</item>
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 1</item>
+    </string-array>
+
+    <string-array name="question5">
+        <item>Question Title</item>
+        <item>Question description goes here.</item>
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 1</item>
+    </string-array>
 </resources>

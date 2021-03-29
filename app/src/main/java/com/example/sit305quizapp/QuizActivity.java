@@ -16,6 +16,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar progressBar;
     TextView welcomeText, progressText, questionTitle, questionDescription;
     Button ans1,ans2,ans3,submit, userSelection;
+    String[][] questions = new String[5][];
+    String correctAnswer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans3 = findViewById(R.id.ans3);
         submit = findViewById(R.id.submitButton);
 
+        questions[0] = getResources().getStringArray(R.array.question1);
+        questions[1] = getResources().getStringArray(R.array.question2);
+        questions[2] = getResources().getStringArray(R.array.question3);
+        questions[3] = getResources().getStringArray(R.array.question4);
+        questions[4] = getResources().getStringArray(R.array.question5);
+
         setQuestion();
     }
 
@@ -39,6 +47,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         //Set name in welcome string
         String welcomeTextString = "Welcome " + getIntent().getStringExtra("name") + "!";
         welcomeText.setText(welcomeTextString);
+
+        //Setting Question title, description, and answers
+        questionTitle.setText(questions[currentQuestion-1][0]);
+        questionDescription.setText(questions[currentQuestion-1][1]);
+        ans1.setText(questions[currentQuestion-1][2]);
+        ans2.setText(questions[currentQuestion-1][3]);
+        ans3.setText(questions[currentQuestion-1][4]);
+
+        //Save correct answer
+        correctAnswer = questions[currentQuestion-1][5];
 
         //Set progress bar and progress text
         progressBar.setProgress(currentQuestion);
