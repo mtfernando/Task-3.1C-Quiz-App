@@ -73,7 +73,6 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"
-            android:backgroundTintMode="add"
             android:text="@string/q1_answer1"
             android:backgroundTint="@color/ans_btn"/>
 
