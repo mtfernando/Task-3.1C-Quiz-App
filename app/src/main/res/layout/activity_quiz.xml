@@ -73,22 +73,25 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"
-            android:text="@string/q1_answer1"
-            android:backgroundTint="@color/ans_btn"/>
+            android:backgroundTint="@color/ans_btn"
+            android:onClick="onClick"
+            android:text="@string/q1_answer1" />
 
         <Button
             android:id="@+id/ans2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"
-            android:text="@string/q1_answer2"
-            android:backgroundTint="@color/ans_btn"/>
+            android:backgroundTint="@color/ans_btn"
+            android:onClick="onClick"
+            android:text="@string/q1_answer2" />
 
         <Button
             android:id="@+id/ans3"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:backgroundTint="@color/ans_btn"
+            android:onClick="onClick"
             android:text="@string/q1_answer3" />
 
         <Button

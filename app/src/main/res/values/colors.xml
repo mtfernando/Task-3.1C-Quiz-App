@@ -10,4 +10,5 @@
     <color name="light_grey">#CFCFCF</color>
     <color name="ans_btn">#ACA9A9</color>
     <color name="submit_btn">#51739B</color>
+    <color name="selected_answer_btn">#00F0FE</color>
 </resources>
