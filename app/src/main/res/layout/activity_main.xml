@@ -32,7 +32,7 @@
             android:textColor="#000000" />
 
         <EditText
-            android:id="@+id/textView4"
+            android:id="@+id/nameEditText"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:gravity="center"
@@ -45,10 +45,11 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/startButton"
             android:layout_width="133dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:onClick="showUserName"
             android:text="@string/start_button"
             android:textSize="18sp" />
 
