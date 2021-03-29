@@ -1,7 +1,19 @@
 <resources>
+<!--General Strings-->
     <string name="app_name">SIT305 Quiz App</string>
     <string name="main_header">SIT305 Quiz App</string>
     <string name="enter_name">Enter your name:</string>
     <string name="start_button">START</string>
     <string name="welcome">Welcome!</string>
+    <string name="progress_level">1/5</string>
+
+    <string name="submit_button">SUBMIT</string>
+    <string name="next_button">Next</string>
+
+<!--Question Strings-->
+    <string name="q1_title">Question Title</string>
+    <string name="q1_desc">Question description goes here.</string>
+    <string name="q1_answer1">Answer 1</string>
+    <string name="q1_answer2">Answer 2</string>
+    <string name="q1_answer3">Answer 3</string>
 </resources>
