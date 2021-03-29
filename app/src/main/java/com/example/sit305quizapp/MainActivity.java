@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.nameEditText);
         startButton = findViewById(R.id.startButton);
 
-<<<<<<< HEAD
         //Start Quiz Activity on button click
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 userName = data.getStringExtra("name"); //Get User's name from score activity
             }
         }
-=======
->>>>>>> 5cb347549b84559a1928ff98c138458693cbcd13
     }
 
     public void showUserName(View view){
