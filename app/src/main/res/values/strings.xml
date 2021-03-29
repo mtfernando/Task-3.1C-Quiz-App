@@ -7,7 +7,13 @@
     <string name="welcome">Welcome!</string>
     <string name="progress_level">1/5</string>
 
-    <string name="submit_button">SUBMIT</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="your_score">Your score:</string>
+    <string name="score">Final score here</string>
+    <string name="new_quiz_btn">Take new Quiz</string>
+    <string name="finish">Finish</string>
+
+    <string name="submit_button">Submit</string>
     <string name="next_button">Next</string>
 
 <!--Question Strings-->
