@@ -3,4 +3,5 @@
     <string name="main_header">SIT305 Quiz App</string>
     <string name="enter_name">Enter your name:</string>
     <string name="start_button">START</string>
+    <string name="welcome">Welcome!</string>
 </resources>
