@@ -19,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         name = findViewById(R.id.nameEditText);
         startButton = findViewById(R.id.startButton);
-        userName =  name.getText().toString();
+
     }
 
     public void showUserName(View view){
+        userName =  name.getText().toString();
         Toast.makeText(getApplicationContext(), "Welcome " + userName, Toast.LENGTH_SHORT).show();
+        System.out.println("Printing Now");
+        System.out.println(userName);
     }
 }
