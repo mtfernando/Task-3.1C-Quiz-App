@@ -32,7 +32,7 @@ public class QuizActivity extends AppCompatActivity {
         submit = findViewById(R.id.submitButton);
 
         //Set name in welcome string
-        String welcomeTextString = "Welcome " + getIntent().getStringExtra("name" + "!");
+        String welcomeTextString = "Welcome " + getIntent().getStringExtra("name") + "!";
         welcomeText.setText(welcomeTextString);
 
         //Set progress bar and progress text
