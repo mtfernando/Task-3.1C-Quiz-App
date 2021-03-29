@@ -1,0 +1,35 @@
+<!--Custom progress made by Hadi Al Tinawi.-->
+<!--Acquired from the following link:https://stackoverflow.com/questions/43977565/is-it-possible-to-increase-the-height-of-the-line-inside-the-progress-bar-androi/43977753#43977753-->
+<!--Acquired on 29/03/2021 for use in asssignment Task 3.1C, SIT305, Deakin University.-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="5dip" />
+            <gradient
+                android:startColor="@color/grey"
+                android:centerColor="@color/grey"
+                android:endColor="@color/grey"
+                />
+        </shape>
+    </item>
+
+
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="5dip" />
+                <gradient
+                    android:startColor="@color/teal_200"
+                    android:centerColor="@color/teal_200"
+                    android:endColor="@color/teal_200"
+                    />
+            </shape>
+        </clip>
+    </item>
+
+
+
+</layer-list>
