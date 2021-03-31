@@ -101,6 +101,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
             android:backgroundTint="@color/submit_btn"
+            android:onClick="submitClick"
             android:text="@string/submit_button" />
 
     </LinearLayout>
