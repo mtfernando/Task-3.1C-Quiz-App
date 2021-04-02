@@ -42,13 +42,14 @@ public class MainActivity extends AppCompatActivity {
         switch(resultCode){
             case(RESULT_FIRST_USER):
             {
-                finalScore = data.getIntExtra("result", 0);//Get quiz score from the quiz activity
+                finalScore = data.getIntExtra("score", -1);//Get quiz score from the quiz activity
+                System.out.println("Final score is " + finalScore);
             } break;
 
             case(2):
             {
                 userName = data.getStringExtra("name"); //Get User's name from score activity
-            }
+            }break;
         }
     }
 

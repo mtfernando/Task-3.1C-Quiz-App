@@ -2,6 +2,7 @@ package com.example.sit305quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -89,6 +90,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans3.setBackgroundColor(getResources().getColor(R.color.ans_btn));
 
         //Set new background color to highlight selected answer.
+        //Save selected answer button view in userSelection.
         switch (v.getId()) {
             case R.id.ans1:
                 System.out.println("Answer 1");
@@ -132,9 +134,25 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         else{
             System.out.println("Next question appears now...");
             currentQuestion = currentQuestion + 1;
-            submit.setText("SUBMIT");
-            submit.setTag(0);
-            setQuestion();
+
+            if(currentQuestion<6){
+                submit.setText("SUBMIT");
+                submit.setTag(0);
+                setQuestion();
+            }
+
+            else{
+                submit.setTag(3);
+                //End activity and send results to MainActivity.
+                System.out.println("ScoreActivity should start now.");
+                System.out.println("Score is " + score);
+
+                Intent intent = new Intent(QuizActivity.this, MainActivity.class);
+                intent.putExtra("score", score);
+                setResult(RESULT_FIRST_USER, intent);
+
+                finish();
+            }
         }
     }
 }
