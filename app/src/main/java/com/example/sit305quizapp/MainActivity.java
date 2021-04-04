@@ -14,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
     EditText name;
     Button startButton;
-    String userName;
+    String userName="";
     Integer finalScore=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         name = findViewById(R.id.nameEditText);
+        name.setText(userName);
         startButton = findViewById(R.id.startButton);
 
         //Start Quiz Activity on button click
@@ -40,15 +41,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch(resultCode){
+
+            //Result from QuizActivity
             case(RESULT_FIRST_USER):
             {
                 finalScore = data.getIntExtra("score", -1);//Get quiz score from the quiz activity
                 System.out.println("Final score is " + finalScore);
+
+                //Start ScoreActivity
+                Intent scoreIntent = new Intent(MainActivity.this, ScoreActivity.class);
+                scoreIntent.putExtra("name", userName);
+                scoreIntent.putExtra("score", finalScore);
+                startActivityForResult(scoreIntent, 2);
+
             } break;
 
+            //Result from ScoreActivity
             case(2):
             {
                 userName = data.getStringExtra("name"); //Get User's name from score activity
+
             }break;
         }
     }

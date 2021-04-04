@@ -143,6 +143,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
             else{
                 submit.setTag(3);
+
                 //End activity and send results to MainActivity.
                 System.out.println("ScoreActivity should start now.");
                 System.out.println("Score is " + score);
