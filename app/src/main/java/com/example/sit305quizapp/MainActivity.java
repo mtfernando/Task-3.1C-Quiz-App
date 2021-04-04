@@ -30,10 +30,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userName =  name.getText().toString();
-                name.setText(userName);
-                Intent quizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                quizIntent.putExtra("name", userName);
-                startActivityForResult(quizIntent, RESULT_FIRST_USER);
+
+                //Error handling for not entering name
+                if(userName.matches("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your name!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    System.out.println("Username is " + userName);
+                    name.setText(userName);
+                    Intent quizIntent = new Intent(MainActivity.this, QuizActivity.class);
+                    quizIntent.putExtra("name", userName);
+                    startActivityForResult(quizIntent, RESULT_FIRST_USER);
+
+                }
             }
         });
     }
