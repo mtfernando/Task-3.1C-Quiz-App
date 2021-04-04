@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -33,10 +34,20 @@ public class ScoreActivity extends AppCompatActivity {
         finalScoreText.setText(score.toString() + "/5");
     }
 
-    public void finishQuiz(){
-        newQuiz = false;
+    public void startNewQuiz(View view){
+        newQuiz = true;
 
         Intent intent  = new Intent(ScoreActivity.this, MainActivity.class);
+        intent.putExtra("newQuiz", newQuiz);
+        intent.putExtra("name", userName);
+        setResult(2, intent);
+        finish();
+    }
+
+    public void finishQuiz(View view){
+        newQuiz = false;
+
+        Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
         intent.putExtra("newQuiz", newQuiz);
         setResult(2, intent);
         finish();

@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button startButton;
     String userName="";
     Integer finalScore=0;
+    boolean newQuiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,11 @@ public class MainActivity extends AppCompatActivity {
             case(2):
             {
                 userName = data.getStringExtra("name"); //Get User's name from score activity
+                newQuiz = data.getBooleanExtra("newQuiz", true);
 
+                if(!newQuiz){
+                    finish();
+                }
             }break;
         }
     }

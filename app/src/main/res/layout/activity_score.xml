@@ -42,6 +42,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:onClick="startNewQuiz"
         android:text="@string/new_quiz_btn" />
 
     <Button
@@ -49,5 +50,6 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:onClick="finishQuiz"
         android:text="@string/finish" />
 </LinearLayout>
