@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 userName = data.getStringExtra("name"); //Get User's name from score activity
                 newQuiz = data.getBooleanExtra("newQuiz", true);
 
+                //End quiz if the user selects to end it
                 if(!newQuiz){
                     finish();
                 }

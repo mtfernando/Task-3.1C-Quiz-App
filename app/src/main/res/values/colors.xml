@@ -12,4 +12,5 @@
     <color name="submit_btn">#51739B</color>
     <color name="selected_answer_btn">#00F0FE</color>
     <color name="incorrect_answer_btn">#F48976</color>
+    <color name="correct_answer_btn">#92EC94</color>
 </resources>

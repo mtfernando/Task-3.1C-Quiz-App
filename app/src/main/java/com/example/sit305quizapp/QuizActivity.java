@@ -112,7 +112,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void submitClick(View v){
+
+        //Check state of button and proceed
         if (Integer.parseInt(v.getTag().toString())==0){
+            //Make buttons unclickable once answer is submitted
+            ans1.setClickable(false);
+            ans2.setClickable(false);
+            ans3.setClickable(false);
             submit.setText("NEXT");
             submit.setTag(1);
 
@@ -121,13 +127,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
             if (selectedAnswer == Integer.parseInt(questions[currentQuestion-1][5])){
                 System.out.println("Correct Answer!");
+                userSelection.setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
                 score = score + 1;
             }
 
             else{
                 System.out.println("Incorrect answer! Try again.");
                 userSelection.setBackgroundColor(getResources().getColor(R.color.incorrect_answer_btn));
-                answerButtons[Integer.parseInt(questions[currentQuestion-1][5])-1].setBackgroundColor(getResources().getColor(R.color.selected_answer_btn));
+                answerButtons[Integer.parseInt(questions[currentQuestion-1][5])-1].setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
             }
         }
 
@@ -139,6 +146,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 submit.setText("SUBMIT");
                 submit.setTag(0);
                 setQuestion();
+
+                //Make buttons clickable
+                ans1.setClickable(true);
+                ans2.setClickable(true);
+                ans3.setClickable(true);
             }
 
             else{
