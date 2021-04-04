@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -20,6 +21,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     String[][] questions = new String[5][];
     String correctAnswer;
     Button[] answerButtons = new Button[3];
+    Boolean answerSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,18 +95,18 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         //Save selected answer button view in userSelection.
         switch (v.getId()) {
             case R.id.ans1:
-                System.out.println("Answer 1");
+                System.out.println("Answer 1 is selected");
                 ans1.setBackgroundColor(getResources().getColor(R.color.selected_answer_btn));
                 userSelection = ans1;
                 break;
 
             case R.id.ans2:
-                System.out.println("Answer 2");
+                System.out.println("Answer 2 is selected");
                 ans2.setBackgroundColor(getResources().getColor(R.color.selected_answer_btn));
                 userSelection = ans2;
                 break;
             case R.id.ans3:
-                System.out.println("Answer 3");
+                System.out.println("Answer 3 is selected");
                 ans3.setBackgroundColor(getResources().getColor(R.color.selected_answer_btn));
                 userSelection = ans3;
                 break;
@@ -114,30 +116,41 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     public void submitClick(View v){
 
         //Check state of button and proceed
-        if (Integer.parseInt(v.getTag().toString())==0){
-            //Make buttons unclickable once answer is submitted
-            ans1.setClickable(false);
-            ans2.setClickable(false);
-            ans3.setClickable(false);
-            submit.setText("NEXT");
-            submit.setTag(1);
 
+        //When SUBMIT is clicked
+        if (Integer.parseInt(v.getTag().toString())==0) {
             //Calculating score
-            Integer selectedAnswer = Integer.parseInt(userSelection.getTag().toString());
-
-            if (selectedAnswer == Integer.parseInt(questions[currentQuestion-1][5])){
-                System.out.println("Correct Answer!");
-                userSelection.setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
-                score = score + 1;
+            Integer selectedAnswer = -1;
+            try {
+                selectedAnswer = Integer.parseInt(userSelection.getTag().toString());
+                answerSelected = true;
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             }
+            if (answerSelected) {
+                System.out.println("Selected answer is " + selectedAnswer);
+                selectedAnswer = Integer.parseInt(userSelection.getTag().toString());
 
-            else{
-                System.out.println("Incorrect answer! Try again.");
-                userSelection.setBackgroundColor(getResources().getColor(R.color.incorrect_answer_btn));
-                answerButtons[Integer.parseInt(questions[currentQuestion-1][5])-1].setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
+                if (selectedAnswer == Integer.parseInt(questions[currentQuestion - 1][5])) {
+                    System.out.println("Correct Answer!");
+                    userSelection.setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
+                    score = score + 1;
+                } else {
+                    System.out.println("Incorrect answer! Try again.");
+                    userSelection.setBackgroundColor(getResources().getColor(R.color.incorrect_answer_btn));
+                    answerButtons[Integer.parseInt(questions[currentQuestion - 1][5]) - 1].setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
+                }
+
+                //Make buttons unclickable once answer is submitted
+                ans1.setClickable(false);
+                ans2.setClickable(false);
+                ans3.setClickable(false);
+                submit.setText("NEXT");
+                submit.setTag(1);
             }
         }
 
+        //When NEXT is clicked
         else{
             System.out.println("Next question appears now...");
             currentQuestion = currentQuestion + 1;
