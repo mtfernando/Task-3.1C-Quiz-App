@@ -159,6 +159,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         //When NEXT is clicked
         else{
+            //Clear previous selection
+            userSelection = null;
+            answerSelected=false;
+
             System.out.println("Next question appears now...");
             currentQuestion = currentQuestion + 1;
 
