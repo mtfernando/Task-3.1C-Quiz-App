@@ -21,7 +21,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     String[][] questions = new String[5][];
     String correctAnswer;
     Button[] answerButtons = new Button[3];
-    Boolean answerSelected;
+    Boolean answerSelected = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,16 +121,21 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         if (Integer.parseInt(v.getTag().toString())==0) {
             //Calculating score
             Integer selectedAnswer = -1;
+
+            //try-catch for when an answer is not selected.
             try {
                 selectedAnswer = Integer.parseInt(userSelection.getTag().toString());
                 answerSelected = true;
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             }
+
+            //Proceed only if an answer has been selected
             if (answerSelected) {
                 System.out.println("Selected answer is " + selectedAnswer);
                 selectedAnswer = Integer.parseInt(userSelection.getTag().toString());
 
+                //Check selected answer against correct answer defined in strings.xml
                 if (selectedAnswer == Integer.parseInt(questions[currentQuestion - 1][5])) {
                     System.out.println("Correct Answer!");
                     userSelection.setBackgroundColor(getResources().getColor(R.color.correct_answer_btn));
@@ -145,6 +150,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 ans1.setClickable(false);
                 ans2.setClickable(false);
                 ans3.setClickable(false);
+
+                //Change button text and tag
                 submit.setText("NEXT");
                 submit.setTag(1);
             }
@@ -155,6 +162,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             System.out.println("Next question appears now...");
             currentQuestion = currentQuestion + 1;
 
+            //Only 5 questions will be displayed.
             if(currentQuestion<6){
                 submit.setText("SUBMIT");
                 submit.setTag(0);
@@ -170,7 +178,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 submit.setTag(3);
 
                 //End activity and send results to MainActivity.
-                System.out.println("ScoreActivity should start now.");
+                System.out.println("ScoreActivity starts now.");
                 System.out.println("Score is " + score);
 
                 Intent intent = new Intent(QuizActivity.this, MainActivity.class);

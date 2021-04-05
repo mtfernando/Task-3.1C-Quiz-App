@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Assign views to local vars
         name = findViewById(R.id.nameEditText);
         name.setText(userName);
         startButton = findViewById(R.id.startButton);
@@ -80,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showUserName(View view){
-        userName =  name.getText().toString();
-        Toast.makeText(getApplicationContext(), "Welcome " + userName, Toast.LENGTH_SHORT).show();
-        System.out.println("Printing Now");
-        System.out.println(userName);
-    }
+//    public void showUserName(View view){
+//        userName =  name.getText().toString();
+//        Toast.makeText(getApplicationContext(), "Welcome " + userName, Toast.LENGTH_SHORT).show();
+//        System.out.println("Printing Now");
+//        System.out.println(userName);
+//    }
 }

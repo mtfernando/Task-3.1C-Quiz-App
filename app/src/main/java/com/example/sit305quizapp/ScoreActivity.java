@@ -20,6 +20,7 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
+        //Assign views to local vars
         congratulationsText = findViewById(R.id.congratulationsText);
         yourScoreText = findViewById(R.id.yourScoreText);
         finalScoreText = findViewById(R.id.finalScoreText);
@@ -27,15 +28,17 @@ public class ScoreActivity extends AppCompatActivity {
         newQuizButton = findViewById(R.id.newQuizButton);
         finishButton = findViewById(R.id.finishButton);
 
+        //Get data from intent
         userName = getIntent().getStringExtra("name");
         score = getIntent().getIntExtra("score", -1);
 
+        //Set text views based on data from intent
         congratulationsText.setText("Congratulations " + userName + "!");
         finalScoreText.setText(score.toString() + "/5");
     }
 
     public void startNewQuiz(View view){
-        newQuiz = true;
+        newQuiz = true; //Boolean variable will tell the MainActivity whether to continue with a new quiz
 
         Intent intent  = new Intent(ScoreActivity.this, MainActivity.class);
         intent.putExtra("newQuiz", newQuiz);
